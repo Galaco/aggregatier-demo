@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  web:
+    build:
+      dockerfile: ./docker/dev/Dockerfile
+    environment:
+      GO111MODULE: 'on'
