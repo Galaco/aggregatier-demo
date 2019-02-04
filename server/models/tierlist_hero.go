@@ -1,8 +1,8 @@
 package models
 
 type TierlistHero struct {
-	// tierlist id
-	// hero id
-	// rank id
-	// date modified
+	TierlistId int
+	HeroId int
+	TierId int
+	DateModified string
 }

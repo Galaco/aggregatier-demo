@@ -1,7 +1,7 @@
 package models
 
 type Tier struct {
-	// id
-	// name
-	// game
+	Id int
+	Name string
+	GameId string
 }

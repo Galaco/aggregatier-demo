@@ -1,7 +1,31 @@
 package models
 
+import "fmt"
+
 type Hero struct {
-	//id
-	//name
-	//game_id
+	Id int
+	Name string
+	GameId int
+}
+
+func AllHeroes(gameId int) ([]*Hero, error) {
+	rows, err := db.Query(fmt.Sprintf("SELECT * FROM heroes WHERE game_id = %d", gameId))
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	heroes := make([]*Hero, 0)
+	for rows.Next() {
+		hero := new(Hero)
+		err := rows.Scan(&hero.Id, &hero.Name, &hero.GameId)
+		if err != nil {
+			return nil, err
+		}
+		heroes = append(heroes, hero)
+	}
+	if err = rows.Err(); err != nil {
+		return nil, err
+	}
+	return heroes, nil
 }
