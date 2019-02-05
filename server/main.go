@@ -5,6 +5,7 @@ import (
 	"github.com/galaco/aggregatier/models"
 	"github.com/gin-gonic/contrib/static"
 	"github.com/gin-gonic/gin"
+	"github.com/gin-contrib/cors"
 )
 
 func main() {
@@ -17,6 +18,9 @@ func main() {
 }
 
 func initRoutes(router *gin.Engine) {
+	// CORS
+	router.Use(cors.Default())
+
 	// Serve frontend static files
 	router.Use(static.Serve("/", static.LocalFile("./views", true)))
 
