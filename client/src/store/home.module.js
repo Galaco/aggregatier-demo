@@ -45,7 +45,7 @@ const actions = {
       });
   },
   [FETCH_HEROES]({ commit }, params) {
-    return HeroesService.all(params.gameId)
+    return HeroesService.all(params)
       .then(({ data }) => {
         commit(SET_HEROES, data.message);
       })
@@ -69,7 +69,10 @@ const mutations = {
     state.games = games;
   },
   [SET_HEROES](state, data) {
-    state.heroes = data.message;
+    console.log(data);
+    state.heroes = data;
+    state.heroesCount = data.length;
+    state.isLoading = false;
   }
 };
 

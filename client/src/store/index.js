@@ -6,7 +6,7 @@ import home from "./home.module";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-    modules: {
-        home
-    }
+  modules: {
+    home
+  }
 });

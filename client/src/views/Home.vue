@@ -1,11 +1,11 @@
 <template>
   <div class="home-page">
-    Egghat
-    <select name="Game list">
-      <option v-for="game in games" :value="game.name" :key="game.id">
+    Home
+    <div v-for="game in games" :value="game.name" :key="game.id">
+      <router-link :to="{ name: 'game', params: { gameId: game.id } }">
         {{ game.name }}
-      </option>
-    </select>
+      </router-link>
+    </div>
   </div>
 </template>
 
