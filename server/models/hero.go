@@ -8,6 +8,12 @@ type Hero struct {
 	GameId int
 }
 
+func InsertHero(id int, name string, gameId int) error {
+	_, err := db.Exec(fmt.Sprintf("INSERT INTO heroes (id, name, game_id) VALUES (%d, \"%s\", %d)", id, name, gameId))
+	return err
+}
+
+
 func AllHeroes(gameId int) ([]*Hero, error) {
 	rows, err := db.Query(fmt.Sprintf("SELECT * FROM heroes WHERE game_id = %d", gameId))
 	if err != nil {
