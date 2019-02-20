@@ -31,6 +31,7 @@ func AllHeroes(c *gin.Context) {
 		heroesJson = append(heroesJson, gin.H {
 			"id" : hero.Id,
 			"name" : hero.Name,
+			"icon_url" : hero.IconUrl,
 		})
 	}
 

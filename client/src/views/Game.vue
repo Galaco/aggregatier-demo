@@ -2,6 +2,7 @@
   <div class="game-page">
     Game
     <div v-for="hero in heroes" :value="hero.name" :key="hero.id">
+      <img :src="hero.icon_url" />
       <p>{{ hero.name }}</p>
     </div>
   </div>

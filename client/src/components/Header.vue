@@ -1,23 +1,25 @@
 <template>
-  <nav class="navbar navbar-light">
-    <div class="container">
-      <router-link class="navbar-brand" :to="{ name: 'home' }">
-        Aggregatier
-      </router-link>
-      <ul class="nav navbar-nav pull-xs-right">
-        <li class="nav-item">
-          <router-link
-            class="nav-link"
-            active-class="active"
-            exact
-            :to="{ name: 'home' }"
-          >
-            Home
-          </router-link>
-        </li>
-      </ul>
+  <div class="md-tabs">
+    <div class="mobile-nav-bar title-bar">
+      <div class="title-bar-center">
+        <router-link class="title-bar-text" :to="{ name: 'home' }">
+          Aggregatier
+        </router-link>
+        <ul class="nav navbar-nav pull-xs-right">
+          <li class="nav-item">
+            <router-link
+              class="nav-link"
+              active-class="active"
+              exact
+              :to="{ name: 'home' }"
+            >
+              Home
+            </router-link>
+          </li>
+        </ul>
+      </div>
     </div>
-  </nav>
+  </div>
 </template>
 
 <script>

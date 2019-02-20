@@ -6,10 +6,11 @@ type Hero struct {
 	Id int
 	Name string
 	GameId int
+	IconUrl string
 }
 
-func InsertHero(id int, name string, gameId int) error {
-	_, err := db.Exec(fmt.Sprintf("INSERT INTO heroes (id, name, game_id) VALUES (%d, \"%s\", %d)", id, name, gameId))
+func InsertHero(id int, name string, gameId int, iconUrl string) error {
+	_, err := db.Exec(fmt.Sprintf("INSERT INTO heroes (id, name, game_id, icon_url) VALUES (%d, \"%s\", %d, \"%s\")", id, name, gameId, iconUrl))
 	return err
 }
 
@@ -24,7 +25,7 @@ func AllHeroes(gameId int) ([]*Hero, error) {
 	heroes := make([]*Hero, 0)
 	for rows.Next() {
 		hero := new(Hero)
-		err := rows.Scan(&hero.Id, &hero.Name, &hero.GameId)
+		err := rows.Scan(&hero.Id, &hero.Name, &hero.GameId, &hero.IconUrl)
 		if err != nil {
 			return nil, err
 		}

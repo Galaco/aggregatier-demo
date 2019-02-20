@@ -21,6 +21,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `aggregatier`
 --
+CREATE DATABASE IF NOT EXISTS `aggregatier`;
 
 -- --------------------------------------------------------
 
@@ -52,26 +53,9 @@ INSERT INTO `games` (`id`, `name`, `short_name`) VALUES
 CREATE TABLE `heroes` (
   `id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
-  `game_id` int(11) NOT NULL
+  `game_id` int(11) NOT NULL,
+  `icon_url` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `heroes`
---
-
-INSERT INTO `heroes` (`id`, `name`, `game_id`) VALUES
-(1, 'Janus', 1),
-(2, 'Chang\'e', 1),
-(3, 'Fenrir', 1),
-(4, 'Neith', 1),
-(5, 'Sylvanus', 1),
-(6, 'Poseidon', 1),
-(7, 'Zeus', 1),
-(8, 'The Morrigan', 1),
-(9, 'Ymir', 1),
-(10, 'Odin', 1),
-(11, 'Bastet', 1),
-(12, 'Scylla', 1);
 
 -- --------------------------------------------------------
 
