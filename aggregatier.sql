@@ -23,6 +23,8 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `aggregatier`;
 
+USE aggregatier;
+
 -- --------------------------------------------------------
 
 --

@@ -1,12 +1,14 @@
 <template>
-  <div class="md-tabs">
-    <div class="mobile-nav-bar title-bar">
-      <div class="title-bar-center">
-        <router-link class="title-bar-text" :to="{ name: 'home' }">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <router-link class="navbar-brand" :to="{ name: 'home' }">
           Aggregatier
         </router-link>
-        <ul class="nav navbar-nav pull-xs-right">
-          <li class="nav-item">
+      </div>
+      <div>
+        <ul class="navbar navbar-nav navbar-right">
+          <li>
             <router-link
               class="nav-link"
               active-class="active"
@@ -19,7 +21,7 @@
         </ul>
       </div>
     </div>
-  </div>
+  </nav>
 </template>
 
 <script>

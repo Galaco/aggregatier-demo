@@ -1,9 +1,32 @@
 <template>
   <div class="game-page">
-    Game
-    <div v-for="hero in heroes" :value="hero.name" :key="hero.id">
-      <img :src="hero.icon_url" />
-      <p>{{ hero.name }}</p>
+    <div class="container page-header">
+      <div class="row">
+        <div class="col-sm-10">
+          <h4>Game</h4>
+        </div>
+        <div class="col-sm-2 text-right">
+          <a @click="$router.go(-1)">
+            <button type="button" class="btn btn-secondary">Back</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div
+          v-for="hero in heroes"
+          :value="hero.name"
+          :key="hero.id"
+          class="card hero"
+        >
+          <img :src="hero.icon_url" class="card-img-top" :alt="hero.name" />
+          <div class="card-body">
+            <h6 class="card-title">{{ hero.name }}</h6>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
