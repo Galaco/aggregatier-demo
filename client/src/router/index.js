@@ -27,6 +27,12 @@ export default new Router({
       path: "/game/:gameId",
       component: () => import("@/views/Game"),
       props: true
+    },
+    {
+      name: "tierlist/create",
+      path: "/tierlist/:gameId/create",
+      component: () => import("@/views/NewTierlist"),
+      props: true
     }
   ]
 });

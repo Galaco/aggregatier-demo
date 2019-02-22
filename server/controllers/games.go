@@ -3,8 +3,41 @@ package controllers
 import (
 	"github.com/galaco/aggregatier/models"
 	"github.com/gin-gonic/gin"
+	"log"
 	"net/http"
+	"strconv"
 )
+
+func FindGame(c *gin.Context) {
+	c.Header("Content-Type", "application/json")
+
+	gameId,err := strconv.ParseInt(c.Param("gameId"), 10, 32)
+	if err != nil {
+		c.JSON(http.StatusOK, gin.H {
+			"message": err,
+		})
+		return
+	}
+
+	game,err := models.FindGame(int(gameId))
+	log.Println(game)
+	if err != nil {
+		c.JSON(http.StatusOK, gin.H {
+			"message": err,
+		})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H {
+		"message":
+			gin.H {
+				"id" : game.Id,
+				"name" : game.Name,
+				"shortName" : game.ShortName,
+			},
+	})
+}
+
 
 func AllGames(c *gin.Context) {
 	c.Header("Content-Type", "application/json")

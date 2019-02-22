@@ -1,13 +1,15 @@
 import { GamesService, HeroesService } from "@/common/api.service";
-import { FETCH_GAMES, FETCH_HEROES } from "./actions.type";
+import { FETCH_GAME, FETCH_GAMES, FETCH_HEROES } from "./actions.type";
 import {
   FETCH_END,
   FETCH_START,
   SET_HEROES,
+  SET_GAME,
   UPDATE_GAMES_IN_LIST
 } from "./mutations.type";
 
 const state = {
+  game: {},
   games: [],
   heroes: [],
   isLoading: true,
@@ -16,6 +18,9 @@ const state = {
 };
 
 const getters = {
+  game(state) {
+    return state.game;
+  },
   gamesCount(state) {
     return state.gamesCount;
   },
@@ -52,6 +57,15 @@ const actions = {
       .catch(error => {
         throw new Error(error);
       });
+  },
+  [FETCH_GAME]({ commit }, params) {
+    return GamesService.get(params)
+      .then(({ data }) => {
+        commit(SET_GAME, data.message);
+      })
+      .catch(error => {
+        throw new Error(error);
+      });
   }
 };
 
@@ -68,8 +82,10 @@ const mutations = {
   [UPDATE_GAMES_IN_LIST](state, games) {
     state.games = games;
   },
+  [SET_GAME](state, data) {
+    state.game = data;
+  },
   [SET_HEROES](state, data) {
-    console.log(data);
     state.heroes = data;
     state.heroesCount = data.length;
     state.isLoading = false;

@@ -8,7 +8,7 @@ import (
 
 var db *sql.DB
 
-func InitDB(dataSourceName string) {
+func InitDB(dataSourceName string) *sql.DB{
 	var err error
 	db, err = sql.Open("mysql", dataSourceName)
 	if err != nil {
@@ -18,4 +18,6 @@ func InitDB(dataSourceName string) {
 	if err = db.Ping(); err != nil {
 		log.Panic(err)
 	}
+
+	return db
 }

@@ -31,11 +31,20 @@ export default ApiService;
 export const GamesService = {
   all() {
     return ApiService.get("games", "all");
+  },
+  get(id) {
+    return ApiService.get("game", id);
   }
 };
 
 export const HeroesService = {
   all(id) {
     return ApiService.get("heroes/all", id);
+  }
+};
+
+export const TierlistService = {
+  tiers() {
+    return ApiService.get("tierlist/tiers/all")
   }
 };

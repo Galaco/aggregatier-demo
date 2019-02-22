@@ -1,9 +1,32 @@
 package models
 
+import (
+	"fmt"
+	"log"
+)
+
 type Game struct {
 	Id int
 	Name string
 	ShortName string
+}
+
+func FindGame(id int) (*Game, error) {
+	rows, err := db.Query(fmt.Sprintf("SELECT * FROM games WHERE id = %d", id))
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	game := new(Game)
+	rows.Next()
+	err = rows.Scan(&game.Id, &game.Name, &game.ShortName)
+	if err != nil {
+		log.Println(err)
+		return nil, err
+	}
+
+	return game, nil
 }
 
 func AllGames() ([]*Game, error) {
