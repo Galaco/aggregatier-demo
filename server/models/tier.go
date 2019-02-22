@@ -5,8 +5,8 @@ import (
 )
 
 type Tier struct {
-	Id int
-	Name string
+	Id     int
+	Name   string
 	GameId string
 }
 

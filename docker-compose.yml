@@ -1,11 +1,9 @@
 version: '3'
 
 services:
-  web:
+  server:
     build:
       context: .
       dockerfile: docker/prod/Dockerfile
     volumes:
       - ./server:/go/src/github.com/galaco/aggregatier/server
-    ports:
-      - 8080:3000

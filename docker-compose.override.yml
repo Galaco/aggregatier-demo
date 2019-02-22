@@ -1,19 +1,39 @@
 version: '3'
 
 services:
-  web:
+
+# SERVER
+  server:
     build:
-      dockerfile: ./docker/dev/Dockerfile
+      context: .
+      dockerfile: ./docker/dev/server/Dockerfile
     environment:
       GO111MODULE: 'on'
     links:
       - database
+    ports:
+      - 8080:3000
 
+# CLIENT
+  client:
+    build:
+      context: .
+      dockerfile: ./docker/dev/client/Dockerfile
+    volumes:
+      - ./client/src:/srv/app/aggregatier/src
+      - ./client/public:/srv/app/aggregatier/public
+    links:
+      - server
+    ports:
+      - 8081:8080
+
+# DEVELOPMENT UTILITIES
   database:
     image: mysql:5.6
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     environment:
+      MYSQL_DATABASE: "aggregatier"
       MYSQL_ROOT_PASSWORD: "password"
     ports:
       - 3306:3306
@@ -27,4 +47,4 @@ services:
       PMA_USER: root
       PMA_PASSWORD: password
     ports:
-      - 8081:80
+      - 8089:80
