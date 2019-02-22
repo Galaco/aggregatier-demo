@@ -17,9 +17,10 @@ const getters = {
 };
 
 const actions = {
-  [FETCH_TIERLIST_TIERS]({ commit }) {
+  [FETCH_TIERLIST_TIERS]({ commit }, params) {
     commit(FETCH_START);
-    return TierlistService.tiers()
+    console.log("boot");
+    return TierlistService.tiers(params)
       .then(({ data }) => {
         commit(FETCH_END, data.message);
       })

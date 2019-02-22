@@ -44,7 +44,7 @@ export const HeroesService = {
 };
 
 export const TierlistService = {
-  tiers() {
-    return ApiService.get("tierlist/tiers/all");
+  tiers(id) {
+    return ApiService.get("game/" + id, "tiers");
   }
 };

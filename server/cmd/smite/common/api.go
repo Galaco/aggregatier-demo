@@ -95,7 +95,6 @@ func (api *Api) createHash(route string, timestamp string) string {
 }
 
 func (api *Api) getRequest(url string) string {
-	log.Println(url)
 	response, err := http.Get(url)
 	if err != nil {
 		return "[]"

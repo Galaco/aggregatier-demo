@@ -29,6 +29,7 @@ func initRoutes(router *gin.Engine) {
 	{
 		api.GET("/games/all", controllers.AllGames)
 		api.GET("/game/:gameId", controllers.FindGame)
+		api.GET("/game/:gameId/tiers", controllers.Tiers)
 
 		api.GET("/heroes/all/:gameId", controllers.AllHeroes)
 

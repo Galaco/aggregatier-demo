@@ -3,7 +3,6 @@ package controllers
 import (
 	"github.com/galaco/aggregatier/models"
 	"github.com/gin-gonic/gin"
-	"log"
 	"net/http"
 	"strconv"
 )
@@ -20,7 +19,6 @@ func FindGame(c *gin.Context) {
 	}
 
 	game,err := models.FindGame(int(gameId))
-	log.Println(game)
 	if err != nil {
 		c.JSON(http.StatusOK, gin.H {
 			"message": err,

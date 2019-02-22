@@ -39,7 +39,7 @@ export default {
   components: {},
   mounted() {
     this.$store.dispatch(FETCH_HEROES, this.$route.params.gameId);
-    this.$store.dispatch(FETCH_TIERLIST_TIERS);
+    this.$store.dispatch(FETCH_TIERLIST_TIERS, this.$route.params.gameId);
   },
   computed: {
     ...mapGetters(["heroes"]),

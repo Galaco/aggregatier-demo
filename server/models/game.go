@@ -2,7 +2,6 @@ package models
 
 import (
 	"fmt"
-	"log"
 )
 
 type Game struct {
@@ -22,7 +21,6 @@ func FindGame(id int) (*Game, error) {
 	rows.Next()
 	err = rows.Scan(&game.Id, &game.Name, &game.ShortName)
 	if err != nil {
-		log.Println(err)
 		return nil, err
 	}
 

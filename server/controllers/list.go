@@ -1,9 +1,43 @@
 package controllers
 
 import (
+	"github.com/galaco/aggregatier/models"
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"strconv"
 )
+
+func Tiers(c *gin.Context) {
+	c.Header("Content-Type", "application/json")
+
+	gameId,err := strconv.ParseInt(c.Param("gameId"), 10, 32)
+	if err != nil {
+		c.JSON(http.StatusOK, gin.H {
+			"message": err,
+		})
+		return
+	}
+
+	tiers,err := models.AllTiers(int(gameId))
+	if err != nil {
+		c.JSON(http.StatusOK, gin.H {
+			"message": err,
+		})
+		return
+	}
+
+	tiersJson := []gin.H{}
+	for _,tier := range tiers {
+		tiersJson = append(tiersJson, gin.H {
+			"id" : tier.Id,
+			"name" : tier.Name,
+		})
+	}
+
+	c.JSON(http.StatusOK, gin.H {
+		"message": tiersJson,
+	})
+}
 
 func AllLists(c *gin.Context) {
 	c.Header("Content-Type", "application/json")

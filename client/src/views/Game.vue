@@ -24,19 +24,7 @@
           <button class="btn btn-primary">Create Tierlist</button>
         </router-link>
       </div>
-      <div class="row">
-        <div
-          v-for="hero in heroes"
-          :value="hero.name"
-          :key="hero.id"
-          class="card hero"
-        >
-          <img :src="hero.icon_url" class="card-img-top" :alt="hero.name" />
-          <div class="card-body">
-            <h6 class="card-title">{{ hero.name }}</h6>
-          </div>
-        </div>
-      </div>
+      <div class="row"></div>
     </div>
   </div>
 </template>
