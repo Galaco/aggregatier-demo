@@ -1,7 +1,6 @@
-import { GamesService, HeroesService } from "@/common/api.service";
-import { FETCH_TIERLIST_TIERS} from "./actions.type";
+import { FETCH_TIERLIST_TIERS } from "./actions.type";
 import { FETCH_END, FETCH_START } from "./mutations.type";
-import {TierlistService} from "../common/api.service";
+import { TierlistService } from "@/common/api.service";
 
 const state = {
   tiers: [],

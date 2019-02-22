@@ -16,7 +16,10 @@
     <div class="container">
       <div class="row">
         <router-link
-          :to="{ name: 'tierlist/create', params: { gameId: this.$route.params.gameId } }"
+          :to="{
+            name: 'tierlist/create',
+            params: { gameId: this.$route.params.gameId }
+          }"
         >
           <button class="btn btn-primary">Create Tierlist</button>
         </router-link>
