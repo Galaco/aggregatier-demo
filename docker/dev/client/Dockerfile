@@ -1,13 +1,22 @@
 FROM node:8.7.0-alpine
 
-RUN mkdir -p /srv/app/aggregatier
-WORKDIR /srv/app/aggregatier
+# install simple http server for serving static content
+RUN npm install -g http-server
 
-COPY client/package.json /srv/app/aggregatier
-COPY client/package-lock.json /srv/app/aggregatier
+# make the 'app' folder the current working directory
+WORKDIR /app
 
+# copy both 'package.json' and 'package-lock.json' (if available)
+COPY client/package*.json ./
+
+# install project dependencies
 RUN npm install
 
-COPY client/ /srv/app/aggregatier
+# copy project files and folders to the current working directory (i.e. 'app' folder)
+COPY client/ .
 
-CMD [ "npm", "run-script", "serve" ]
+# build app for production with minification
+RUN npm run build
+
+EXPOSE 8080
+CMD [ "http-server", "dist" ]

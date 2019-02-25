@@ -4,6 +4,6 @@ services:
   server:
     build:
       context: .
-      dockerfile: docker/prod/Dockerfile
+      dockerfile: docker/prod/server/Dockerfile
     volumes:
       - ./server:/go/src/github.com/galaco/aggregatier/server
