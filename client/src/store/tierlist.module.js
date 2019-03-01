@@ -1,5 +1,5 @@
 import { FETCH_TIERLIST_TIERS } from "./actions.type";
-import { FETCH_END, FETCH_START } from "./mutations.type";
+import { FETCH_END, FETCH_START, ADD_HERO_TO_TIER } from "./mutations.type";
 import { TierlistService } from "@/common/api.service";
 
 const state = {
@@ -19,7 +19,6 @@ const getters = {
 const actions = {
   [FETCH_TIERLIST_TIERS]({ commit }, params) {
     commit(FETCH_START);
-    console.log("boot");
     return TierlistService.tiers(params)
       .then(({ data }) => {
         commit(FETCH_END, data.message);
@@ -38,7 +37,13 @@ const mutations = {
   [FETCH_END](state, tiers) {
     state.tiers = tiers;
     state.tiersCount = tiers.length;
+    state.tiers.forEach(tier => {
+      tier.heroes = [];
+    });
     state.isLoading = false;
+  },
+  [ADD_HERO_TO_TIER](state, tier, hero) {
+    console.log(tier, hero);
   }
 };
 

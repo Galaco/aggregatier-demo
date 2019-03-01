@@ -29,3 +29,18 @@
     width: 7rem;
     margin: 0.25rem;
 }
+
+.row-tier {
+    height: 3rem;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.row-tier > .col-sm-1 {
+    background-color: #e5e5e5;
+    text-align: center;
+    height: 100%;
+}
+
+.row-tier .col-sm-11 {
+    min-height: 3rem;
+}
