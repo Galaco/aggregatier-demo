@@ -1,34 +1,28 @@
 # Aggregatier
 
 ##### Aggregatier is a MOBA tierlist creator and aggregator.
-
-
+This is really a simple demonstrative application for structuring a Vue front-end backed by a Go API.
 
 ### Running
-Docker is required. It may be run without, but that is left up to you. 
+Docker is required. It can be run without, but that is left up to you.
 
 #### Locally
-Run the server using docker composer. This will spin up the server on `localhost:8080`.
+##### Development
+1. Copy `config.example.json` to `config.json`.
+2. Run the application using docker-compose. This will spin up the server on `localhost:8080`, and the client on `localhost:8081`.
 ```bash
     docker-compose up -d
 ```
-Run the client app using npm. This will be available on `localhost:8082`
-```bash
-cd client
-npm run-script serve
-```
 
-You should be presented with something a little like this:
-![Homepage](https://raw.githubusercontent.com/Galaco/aggregatier/master/.github/docs/repo/aggregatier.png)
+###### You should be presented with something a little like this
+![Homepage](https://raw.githubusercontent.com/Galaco/aggregatier/master/docs/repo/aggregatier.png)
 
+* A development MySQL database is available on `localhost:3306`. PhpMyAdmin is available at `localhost:8089`. For now, 
+import the schema `docker/dev/database/sources.sql` into database `aggregatier` until a better solution.
 
-#### Developing
-
-Dev environments should automatically reload on code changes. `docker-compose logs -f -t web` recommended
-to monitor.
-
-Mysql & PHPMyAdmin are included in `docker-compose.override.yml`. `aggregatier.sql` is a useable dump for
-development until proper seeding is implemented. Just run the dump to setup the database.
-
-A CLI tool is provided to import Smite god data. It will require your own developer API credentials. Eventually
+* A CLI tool is provided to import Smite god data. It will require your own developer API credentials. Eventually
 this will be moved to the api. It is located at `server/cmd/smite/importheroes/main.go`
+
+##### Production
+
+###### @TODO

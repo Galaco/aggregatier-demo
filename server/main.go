@@ -3,15 +3,21 @@ package main
 import (
 	"github.com/galaco/aggregatier/controllers"
 	"github.com/galaco/aggregatier/models"
+	"github.com/galaco/aggregatier/config"
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/contrib/static"
 	"github.com/gin-gonic/gin"
-	"github.com/gin-contrib/cors"
 )
 
 func main() {
+	configuration,err := config.NewConfig("config.json")
+	if err != nil {
+		panic(err)
+	}
+
 	router := gin.Default()
 	initRoutes(router)
-	initServices()
+	initServices(configuration)
 
 	// Start and run the server
 	router.Run(":3000")
@@ -40,6 +46,12 @@ func initRoutes(router *gin.Engine) {
 	}
 }
 
-func initServices() {
-	models.InitDB("root:password@tcp(database)/aggregatier")
+func initServices(configuration *config.Config) {
+	models.InitDB(configuration.Database.Username +
+		":" +
+		configuration.Database.Password +
+		"@tcp(" +
+		configuration.Database.Host +
+		")/" +
+		configuration.Database.Name)
 }

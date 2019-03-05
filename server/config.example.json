@@ -1,0 +1,12 @@
+{
+  "Database": {
+    "Host": "localhost:3306",
+    "Name": "aggregatier",
+    "Username": "root",
+    "Password": "password"
+  },
+  "Smite": {
+    "DevId": "",
+    "AuthKey": ""
+  }
+}

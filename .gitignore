@@ -5,3 +5,5 @@ server/server
 
 client/dist/
 client/node_modules/
+
+server/config\.json
