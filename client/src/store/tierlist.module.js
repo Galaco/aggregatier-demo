@@ -40,6 +40,12 @@ const mutations = {
     state.tiers.forEach(tier => {
       tier.heroes = [];
     });
+    state.tiers.push({
+      id: -1,
+      name: "N/A",
+      heroes: []
+    });
+    console.log(state);
     state.isLoading = false;
   },
   [ADD_HERO_TO_TIER](state, tier, hero) {
