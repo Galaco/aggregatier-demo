@@ -10,32 +10,32 @@ import (
 func AllHeroes(c *gin.Context) {
 	c.Header("Content-Type", "application/json")
 
-	gameId,err := strconv.ParseInt(c.Param("gameId"), 10, 32)
+	gameId, err := strconv.ParseInt(c.Param("gameId"), 10, 32)
 	if err != nil {
-		c.JSON(http.StatusOK, gin.H {
+		c.JSON(http.StatusOK, gin.H{
 			"message": err,
 		})
 		return
 	}
 
-	heroes,err := models.AllHeroes(int(gameId))
+	heroes, err := models.AllHeroes(int(gameId))
 	if err != nil {
-		c.JSON(http.StatusOK, gin.H {
+		c.JSON(http.StatusOK, gin.H{
 			"message": err,
 		})
 		return
 	}
 
 	heroesJson := []gin.H{}
-	for _,hero := range heroes {
-		heroesJson = append(heroesJson, gin.H {
-			"id" : hero.Id,
-			"name" : hero.Name,
-			"icon_url" : hero.IconUrl,
+	for _, hero := range heroes {
+		heroesJson = append(heroesJson, gin.H{
+			"id":       hero.Id,
+			"name":     hero.Name,
+			"icon_url": hero.IconUrl,
 		})
 	}
 
-	c.JSON(http.StatusOK, gin.H {
-		"message":heroesJson,
+	c.JSON(http.StatusOK, gin.H{
+		"message": heroesJson,
 	})
 }

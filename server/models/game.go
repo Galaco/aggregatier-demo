@@ -5,8 +5,8 @@ import (
 )
 
 type Game struct {
-	Id int
-	Name string
+	Id        int
+	Name      string
 	ShortName string
 }
 
