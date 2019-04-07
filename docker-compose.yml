@@ -6,4 +6,4 @@ services:
       context: .
       dockerfile: docker/prod/Dockerfile
     volumes:
-      - ./server:/go/src/github.com/galaco/aggregatier/server
+      - .:/go/src/github.com/galaco/aggregatier
