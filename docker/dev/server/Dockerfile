@@ -11,6 +11,6 @@ EXPOSE 8080
 
 ENV GO111MODULE=1
 
-WORKDIR /go/src/github.com/galaco/aggregatier/server
+WORKDIR /go/src/github.com/galaco/aggregatier
 
 CMD ["bee", "run"]

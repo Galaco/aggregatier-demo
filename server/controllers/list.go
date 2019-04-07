@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"github.com/galaco/aggregatier/models"
+	"github.com/galaco/aggregatier/server/models"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"strconv"
