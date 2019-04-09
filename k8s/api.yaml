@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+  labels:
+    app: api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aggregatier-api
+  template:
+    metadata:
+      labels:
+        app: aggregatier-api
+    spec:
+      containers:
+        - image: wordpress
+          name: aggregatier-api
+          env:
+            - name: WORDPRESS_DB_HOST
+              value: mysql:3306
+            - name: WORDPRESS_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql
+                  key: password
+          ports:
+            - containerPort: 80
+              name: aggregatier-api
+          volumeMounts:
+            - name: aggregatier-persistent-storage
+              mountPath: /var/www/html
+      volumes:
+        - name: aggregatier-persistent-storage
+          persistentVolumeClaim:
+            claimName: api-volumeclaim
