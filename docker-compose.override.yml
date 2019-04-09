@@ -20,8 +20,8 @@ services:
       context: .
       dockerfile: ./docker/dev/client/Dockerfile
     volumes:
-      - ./client/src:/srv/app/aggregatier/src
-      - ./client/public:/srv/app/aggregatier/public
+      - ./client/src:/app/src
+      - ./client/public:/app/public
     links:
       - server
     ports:
