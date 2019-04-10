@@ -1,4 +1,4 @@
-FROM node:8.7.0-alpine
+FROM node:8.15.1-alpine
 
 RUN mkdir -p /srv/app/aggregatier
 WORKDIR /srv/app/aggregatier
