@@ -1,4 +1,4 @@
-FROM golang:1.11
+FROM golang:1.12
 
 # Create the directory where the application will reside
 RUN mkdir /app
