@@ -4,7 +4,7 @@ require (
 	github.com/aws/aws-sdk-go v1.19.11
 	github.com/gin-contrib/cors v0.0.0-20190301062745-f9e10995c85a
 	github.com/gin-contrib/sse v0.0.0-20190301062529-5545eab6dad3 // indirect
-	github.com/gin-gonic/contrib v0.0.0-20190406001503-60f8537fcb8b
+	github.com/gin-gonic/contrib v0.0.0-20190410101329-b5986969cb50
 	github.com/gin-gonic/gin v1.3.0
 	github.com/go-sql-driver/mysql v1.4.1
 	github.com/golang/protobuf v1.3.1 // indirect
