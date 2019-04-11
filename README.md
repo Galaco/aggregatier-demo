@@ -20,8 +20,8 @@ Docker is required. It can be run without, but that is left up to you.
 * A development MySQL database is available on `localhost:3306`. PhpMyAdmin is available at `localhost:8089`. For now, 
 import the schema `docker/dev/database/sources.sql` into database `aggregatier` until a better solution.
 
-* A CLI tool is provided to import Smite god data. It will require your own developer API credentials. Eventually
-this will be moved to the api. It is located at `server/cmd/smite/importheroes/main.go`
+* A CLI tool is provided to import Smite god data. It will require your own developer API credentials, as well as aws 
+credentials for s3. Eventually this will be moved to the api. It is located at `cmd/smite/importheroes/main.go`
 
 ##### Production
 
