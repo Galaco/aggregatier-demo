@@ -1,7 +1,7 @@
 module github.com/galaco/aggregatier
 
 require (
-	github.com/aws/aws-sdk-go v1.19.11
+	github.com/aws/aws-sdk-go v1.19.42
 	github.com/gin-contrib/cors v0.0.0-20190301062745-f9e10995c85a
 	github.com/gin-contrib/sse v0.0.0-20190301062529-5545eab6dad3 // indirect
 	github.com/gin-gonic/contrib v0.0.0-20190406001503-60f8537fcb8b
