@@ -1,4 +1,4 @@
-FROM golang:1.11
+FROM golang:1.12
 
 # Install beego and the bee dev tool
 RUN go get github.com/astaxie/beego && go get github.com/beego/bee
